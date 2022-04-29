@@ -19,14 +19,14 @@ public class DataForTests {
     private int randAge;
     private String fullBirthDateNameSnilsErcFromDB;
     private Long listSnils;
+    private String oms;
 
     public String getDataFromDB() throws ClassNotFoundException, SQLException {
         try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
              Statement statement = connection.createStatement()) {
             System.out.println("connect");
 
-            ResultSet resultPimIndividual = statement
-                    .executeQuery(QUERY_TO_PIM_INDIVIDUAL + ID);
+            ResultSet resultPimIndividual = statement.executeQuery(QUERY_TO_PIM_INDIVIDUAL + ID);
             while (resultPimIndividual.next()) {
                 String birthDateInBase = resultPimIndividual.getString("birth_dt");
                 String birthDate = parseBirthDate(birthDateInBase);
@@ -36,9 +36,13 @@ public class DataForTests {
                 listSnils = resultPimIndividual.getLong("list_snils");
                 String listOmsDoc = resultPimIndividual.getString("list_oms_doc");
                 String omsNum = parseOMS(listOmsDoc);
-                fullBirthDateNameSnilsErcFromDB = birthDate + " " + name + " " + patrName + " " + surname + " " + listSnils + " " + omsNum;
+                fullBirthDateNameSnilsErcFromDB = birthDate + " "
+                        + name + " "
+                        + patrName + " "
+                        + surname + " "
+                        + listSnils + " "
+                        + omsNum;
             }
-
 //            ResultSet resultErc = statement
 //                    .executeQuery(QUERY_TO_ERC + ID);
 //            while (resultErc.next()) {
@@ -60,7 +64,10 @@ public class DataForTests {
         String regEx = "\\d{16}";
         Pattern p = Pattern.compile(regEx);
         Matcher m = p.matcher(listOmsDoc);
-        return m.group();
+        while (m.find()) {
+            oms = m.group();
+        }
+        return oms;
     }
 
     public String parseBirthDate(String birthDate) {

@@ -17,26 +17,21 @@ public class BornSertificatesTest {
     private static WebDriverWait wait;
     private static NavigateMIS mis;
     private static NavigateN2O n2o;
-    private static String startUrl;
-    private static String username;
-    private static String password;
+    private static final String START_URL = "https://mis-test-app.tambov.gov.ru/";
+    private static final String USER = "user3";
+    private static final String PASS = "Qwe147asd";
 
     @BeforeClass
     public static void authorizationAndGoToCertificates_success() throws SQLException, ClassNotFoundException {
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
         mis = new NavigateMIS();
         n2o = new NavigateN2O();
-        startUrl = "https://mis-test-app.tambov.gov.ru/";
-        username = "user3";
-        password = "Qwe147asd";
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.get(startUrl); //link to checking page
-        mis.authorization(driver, username, password); //авторизация
-
+        driver.get(START_URL); //link to checking page
+        mis.authorization(driver, USER, PASS); //авторизация
         mis.goToPharmacy(driver); //переход в Аптека. Документы (для вызова контекста)
-
         n2o.selectionRCK(driver); //вызов контекста и установка РЦК для "Луки"
         n2o.setupMedOrg(driver);
 
@@ -56,19 +51,16 @@ public class BornSertificatesTest {
 
         DataForTests dataForTests = new DataForTests();
         n2o.createNewCertificate(driver,
-                dataForTests.checkDate(),
-                dataForTests.getXDate(),
-                dataForTests.getGestAge(),
-                dataForTests.getPatient());//создание нового сертификата
-
+                dataForTests.checkDate(), dataForTests.getXDate(),
+                dataForTests.getGestAge(), dataForTests.getPatient());//создание нового сертификата
 
         String birthDateFullNameSnilsDB = dataForTests.getDataFromDB();
         System.out.println(birthDateFullNameSnilsDB);
 
-        String birthDateFullNameSnilsInterf=n2o.findFields(driver, dataForTests.getSnils());
+        String birthDateFullNameSnilsInterf = n2o.findFields(driver, dataForTests.getSnils());
         System.out.println(birthDateFullNameSnilsInterf);
 
-        if(birthDateFullNameSnilsDB.equals(birthDateFullNameSnilsInterf)){
+        if (birthDateFullNameSnilsDB.equals(birthDateFullNameSnilsInterf)) {
             System.out.println("Данные в базе и в интерфейсе идентичны");
         } else {
             System.out.println("Данные в базе и в интерфейсе разные");

@@ -12,39 +12,35 @@ public class NavigateN2O {
     private String fullBirthDateNameSnilsFromInterface;
 
     public void selectionRCK(WebDriver driver) {
-        driver.findElement(By.linkText("РЦК"))
-                .click();
+        driver.findElement(By.linkText("РЦК")).click();
         driver.findElement(By.xpath("/html/body/div[1]/div[1]/"
-                        + "div[2]/div/div[2]/div/div/div/ul[3]/li[1]/div/div/a[4]"))
+                + "div[2]/div/div[2]/div/div/div/ul[3]/li[1]/div/div/a[4]"))
                 .click();
     }
 
     public void setupMedOrg(WebDriver driver) {
         driver.findElement(By.xpath("/html/body/div[1]/div[4]/"
-                        + "div/div/div/div/section/div/div/div/div/div/div/div[2]/form/"
-                        + "div/div/div/div/div/div[2]/div/div[1]/div[1]/div/div/div[1]/"
-                        + "div/div/button"))
+                + "div/div/div/div/section/div/div/div/div/div/div/div[2]/form/"
+                + "div/div/div/div/div/div[2]/div/div[1]/div[1]/div/div/div[1]/"
+                + "div/div/button"))
                 .click();
-
         driver.findElement(By.xpath("/html/body/div[1]/div[4]/"
-                        + "div/div/div/div/section/div/div/div/div/div/div/div[2]/form/"
-                        + "div/div/div/div/div/div[2]/div/div[1]/div[1]/div/div/div[2]/"
-                        + "div[1]/input"))
+                + "div/div/div/div/section/div/div/div/div/div/div/div[2]/form/"
+                + "div/div/div/div/div/div[2]/div/div[1]/div[1]/div/div/div[2]/"
+                + "div[1]/input"))
                 .sendKeys("луки");
-
         driver.findElement(By.xpath("/html/body/div[1]/div[4]/"
-                        + "div/div/div/div/section/div/div/div/div/div/div/div[2]/form/"
-                        + "div/div/div/div/div/div[2]/div/div[1]/div[1]/div/div/div[2]/"
-                        + "div[1]/span/i"))
-                .click();
-
-        driver.findElement(By.xpath("/html/body/div[1]/div[4]/"
-                        + "div/div/div/div/section/div/div/div/div/div/div/div[2]/form/"
-                        + "div/div/div/div/div/div[2]/div/div[1]/div[1]/div/div/div[2]/"
-                        + "div[3]/ul/li/a"))
+                + "div/div/div/div/section/div/div/div/div/div/div/div[2]/form/"
+                + "div/div/div/div/div/div[2]/div/div[1]/div[1]/div/div/div[2]/"
+                + "div[1]/span/i"))
                 .click();
         driver.findElement(By.xpath("/html/body/div[1]/div[4]/"
-                        + "div/div/div/div/section/div/div/div/div/div/div/div[3]/button"))
+                + "div/div/div/div/section/div/div/div/div/div/div/div[2]/form/"
+                + "div/div/div/div/div/div[2]/div/div[1]/div[1]/div/div/div[2]/"
+                + "div[3]/ul/li/a"))
+                .click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[4]/"
+                + "div/div/div/div/section/div/div/div/div/div/div/div[3]/button"))
                 .click();
     }
 
@@ -56,107 +52,102 @@ public class NavigateN2O {
     }
 
     public void createNewCertificate(WebDriver driver, String checkDate, String xDate, String gestAge, String patient) {
-        driver.manage().timeouts()
-                .implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.cssSelector("ul.nav:nth-child(14) > li:nth-child(1)"))
                 .click();
         driver.findElement(By.cssSelector("div.n2o-action-container_radius:"
-                        + "nth-child(1) > button:nth-child(1)"))
+                + "nth-child(1) > button:nth-child(1)"))
                 .click();
         driver.findElement(By.linkText("Создать новый"))
                 .click();
 
         //заполнение полей "Создать электронный родовой сертификат"
-        driver.findElement(By.cssSelector("div.n2o-field-label-align-right:nth-child(1)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"))
-                .click();
-        driver.findElement(By.cssSelector("div.n2o-field-label-align-right:nth-child(1)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"))
-                .click();
         driver.findElement(By.cssSelector("div.n2o-field-label-align-right:nth-child(2)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)"
-                        + " > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)"))
+                + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)"
+                + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)"
+                + " > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)"))
                 .sendKeys(checkDate);
         driver.findElement(By.cssSelector("div.n2o-field-label-align-right:nth-child(2)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)"
-                        + " > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)"
-                        + " > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)"))
+                + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)"
+                + " > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)"
+                + " > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)"))
                 .sendKeys(xDate);
         driver.findElement(By.cssSelector("div.n2o-field-label-align-right:nth-child(2)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)"
-                        + " > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)"
-                        + " > div:nth-child(1) > span:nth-child(1) > input:nth-child(1)"))
+                + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)"
+                + " > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)"
+                + " > div:nth-child(1) > span:nth-child(1) > input:nth-child(1)"))
                 .sendKeys(gestAge);
         driver.findElement(By.cssSelector(".n2o-control-container-with-actions"
-                        + " > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"
-                        + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"
-                        + " > div:nth-child(1) > button:nth-child(1)"))
+                + " > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"
+                + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"
+                + " > div:nth-child(1) > button:nth-child(1)"))
                 .click();
         driver.findElement(By.cssSelector(".n2o-control-container-with-actions"
-                        + " > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"
-                        + " > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)"
-                        + " > input:nth-child(1)"))
+                + " > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"
+                + " > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)"
+                + " > input:nth-child(1)"))
                 .sendKeys(patient);
         driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/"
-                        + "div/div/div/section/div/div[1]/div/div/div[2]/div/div/div/"
-                        + "form/div/div[2]/div/div/div[4]/div/div/div[1]/div[1]/div/"
-                        + "div/div[2]/div[1]/span/i"))
+                + "div/div/div/section/div/div[1]/div/div/div[2]/div/div/div/"
+                + "form/div/div[2]/div/div/div[4]/div/div/div[1]/div[1]/div/"
+                + "div/div[2]/div[1]/span/i"))
                 .click();
-//        явное ожидание выпадающего списка
+        //явное ожидание выпадающего списка
 //        wait = new WebDriverWait(driver, 10);
 //        wait.until(ExpectedConditions.elementSelectionStateToBe());
 
         driver.findElement(By.xpath("/html/body/div[1]/div[3]/"
-                        + "div/div/div/div/section/div/div[1]/div/div/div[2]/div/div/"
-                        + "div/form/div/div[2]/div/div/div[4]/div/div/div[1]/div[1]/"
-                        + "div/div/div[2]/div[3]/ul/li[1]/a"))
+                + "div/div/div/div/section/div/div[1]/div/div/div[2]/div/div/"
+                + "div/form/div/div[2]/div/div/div[4]/div/div/div[1]/div[1]/"
+                + "div/div/div[2]/div[3]/ul/li[1]/a"))
                 .click();
         driver.findElement(By.cssSelector(".n2o-confirm"))
                 .click();//сохранение
     }
 
     public String findFields(WebDriver driver, String snils) {
-        driver.findElement(By.cssSelector("div.n2o-control-container:nth-child(2) > div:nth-child(1)" +
-                        " > div:nth-child(2) > div:nth-child(1) > span:nth-child(1) > input:nth-child(1)"))
+        driver.findElement(By.cssSelector("div.n2o-control-container:nth-child(2) > div:nth-child(1)"
+                + " > div:nth-child(2) > div:nth-child(1) > span:nth-child(1) > input:nth-child(1)"))
                 .sendKeys(snils);
-        driver.findElement(By.cssSelector(".submit")).click();
-        driver.findElement(By.cssSelector(".info")).click();
-        driver.findElement(By.cssSelector("div.n2o-action-container_radius:nth-child(5) > button:nth-child(1)")).click();
+        driver.findElement(By.cssSelector(".submit"))
+                .click();
+        driver.findElement(By.cssSelector(".info"))
+                .click();
+        driver.findElement(By.cssSelector("div.n2o-action-container_radius:nth-child(5) > button:nth-child(1)"))
+                .click();
 
-        String name = driver.findElement(By.cssSelector("div.erc-form-column-one > div:nth-child(3) > div:nth-child(1)" +
-                        " > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1) > input:nth-child(1)"))
+        String name = driver.findElement(By.cssSelector("div.erc-form-column-one > div:nth-child(3) > div:nth-child(1)"
+                + " > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1) > input:nth-child(1)"))
                 .getAttribute("value");//имя
-        String patrName = driver.findElement(By.cssSelector("div.erc-form-column-one > div:nth-child(4)" +
-                        " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)" +
-                        " > input:nth-child(1)"))
+        String patrName = driver.findElement(By.cssSelector("div.erc-form-column-one > div:nth-child(4)"
+                + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)"
+                + " > input:nth-child(1)"))
                 .getAttribute("value");//отчество
-        String surName = driver.findElement(By.cssSelector("div.erc-form-column-one > div:nth-child(2)" +
-                        " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)" +
-                        " > input:nth-child(1)"))
-                .getAttribute("value");//фамилия
-        String bDate = driver.findElement(By.cssSelector("div.erc-form-column-one > div:nth-child(5) > div:nth-child(1)" +
-                        " > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)"))
+        String surName = driver.findElement(By.cssSelector("div.erc-form-column-one > div:nth-child(2)"
+                + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)"
+                + " > input:nth-child(1)")).getAttribute("value");//фамилия
+        String bDate = driver.findElement(By.cssSelector("div.erc-form-column-one > div:nth-child(5) > div:nth-child(1)"
+                + " > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)"))
                 .getAttribute("value");//дата рождения
-        String snilsFromInterface = driver.findElement(By.cssSelector("div.erc-form-column-three > div:nth-child(2)" +
-                        " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)" +
-                        " > input:nth-child(1)"))
-                .getAttribute("value");//снилс
-        String numOms = driver.findElement(By.cssSelector("div.erc-form-column-two > div:nth-child(2) > div:nth-child(1)" +
-                        " > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1) > input:nth-child(1)"))
+        String snilsFromInterface = driver.findElement(By.cssSelector("div.erc-form-column-three > div:nth-child(2)"
+                + " > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)"
+                + " > input:nth-child(1)")).getAttribute("value");//снилс
+        String numOms = driver.findElement(By.cssSelector("div.erc-form-column-two > div:nth-child(2) > div:nth-child(1)"
+                + " > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1) > input:nth-child(1)"))
                 .getAttribute("value");//омс
-        fullBirthDateNameSnilsFromInterface = bDate + " " + name + " " + patrName + " " + surName + " " + snilsFromInterface + " " + numOms;
+        driver.findElement(By.cssSelector(".close")).click();
+        fullBirthDateNameSnilsFromInterface = bDate + " "
+                + name + " " + patrName + " " + surName + " " + snilsFromInterface + " " + numOms;
         return fullBirthDateNameSnilsFromInterface;
     }
 
     public void sendToFSS(WebDriver driver) {
-        driver.findElement(By.cssSelector("div.n2o-action-container_radius:nth-child(9)")).
-                click();
+        driver.findElement(By.cssSelector("div.n2o-action-container_radius:nth-child(9)"))
+                .click();
+        wait.until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().accept();
+        wait.until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().accept();
+        driver.findElement(By.cssSelector(".n2o-select")).click();
     }
 }
